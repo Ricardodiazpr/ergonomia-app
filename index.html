@@ -226,13 +226,14 @@ const AREA_PROMPTS = {
   mecanica:`Eres un ergonomista certificado. Analiza la imagen del trabajador en área de MECÁNICA. Evalúa: postura de acceso al equipo, agarre de herramientas, posición de muñeca, tronco al agacharse, trabajo en cuclillas, brazos sobre la cabeza, uso de EPP. Responde SOLO con JSON sin markdown:\n{"puntuacion":85,"nivel":"Riesgo Bajo","resumen":"texto","hallazgos_criticos":["..."],"hallazgos_moderados":["..."],"puntos_positivos":["..."],"recomendaciones":["..."],"segmentos":{"acceso":75,"herramientas":80,"tronco":85,"brazos":70,"compresion_articular":88,"postura_general":75}}`
 };
  
-let currentArea='oficina', currentDataUrl=null, currentIsVideo=false, snapshots=[], camStream=null, history=[], apiKey='';
+let currentArea='oficina', currentDataUrl=null, currentIsVideo=false, snapshots=[], camStream=null, history=[], apiKey='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';
  
 function init(){
   document.getElementById('wdate').value=new Date().toISOString().split('T')[0];
   document.getElementById('header-date').textContent=new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
   const saved=localStorage.getItem('erg_api_key');
-  if(saved){apiKey=saved;document.getElementById('api-banner').style.display='none';}
+  if(saved){apiKey=saved;}
+  document.getElementById('api-banner').style.display='none';
   const dz=document.getElementById('drop-zone');
   dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('over')});
   dz.addEventListener('dragleave',()=>dz.classList.remove('over'));
@@ -467,3 +468,4 @@ init();
 </script>
 </body>
 </html>
+ 
